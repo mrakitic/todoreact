@@ -5,18 +5,32 @@ export class Details extends Component {
     todo: undefined
   };
 
-  componentWillUpdate(nextProps) {
-    const { match, todos } = this.props;
+  componentDidMount() {
+    const { todos } = this.props;
 
-    if (todos !== nextProps.todos) {
-      if (match.params && match.params.id) {
-        const todo = nextProps.todos.find(todo => todo.id == match.params.id);
-        this.setState({
-          todo
-        });
-      }
+    if (todos) {
+      this.setTodoItem(todos);
     }
   }
+
+  componentWillUpdate(nextProps) {
+    const { todos } = this.props;
+
+    if (!todos && nextProps.todos) {
+      this.setTodoItem(nextProps.todos);
+    }
+  }
+
+  setTodoItem = todos => {
+    const { match } = this.props;
+
+    if (match.params && match.params.id) {
+      const todo = todos.find(todo => todo.id == match.params.id);
+      this.setState({
+        todo
+      });
+    }
+  };
 
   render() {
     const { todo } = this.state;
