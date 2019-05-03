@@ -74,8 +74,7 @@ export class ToDo extends Component {
     const { todos } = this.props;
     const { titleError } = this.state;
     const { maxLength } = this.state;
-    return (
-      <Router>
+    return (      
         <main className="main wrapper">
           <header className="header">
             <h1>My To-Do List</h1>
@@ -155,7 +154,7 @@ export class ToDo extends Component {
               : "No todos right now, check back later."}
           </div>
         </main>
-      </Router>
+      
     );
   }
 }
