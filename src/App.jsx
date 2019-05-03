@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Details, ToDo } from "./views";
+import { Details, ToDo, Error } from "./views";
 
 export class App extends Component {
   state = {
@@ -35,6 +35,7 @@ export class App extends Component {
             path="/details/:id"
             render={props => <Details {...props} {...this.state} />}
           />
+          <Route component={Error} />
         </Switch>
       </BrowserRouter>
     );

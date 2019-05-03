@@ -9,7 +9,7 @@ export class ToDo extends Component {
     maxLength: 75
   };
 
-  deleteCompleted = event => {
+  deleteCompleted = () => {
     let newTodos = this.props.todos.filter(todos => {
       return !todos.completed;
     });
@@ -17,7 +17,7 @@ export class ToDo extends Component {
     this.props.updateTodos(newTodos);
   };
 
-  modifyByCompleted = event => {
+  modifyByCompleted = () => {
     const { todos } = this.props;
     const orderByCompl = todos.sort(function(a, b) {
       return b.completed - a.completed;
