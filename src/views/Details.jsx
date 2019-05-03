@@ -8,7 +8,7 @@ export class Details extends Component {
   componentWillUpdate(nextProps) {
     const { match, todos } = this.props;
 
-    if (!todos && nextProps.todos) {
+    if (todos !== nextProps.todos) {
       if (match.params && match.params.id) {
         const todo = nextProps.todos.find(todo => todo.id == match.params.id);
         this.setState({
